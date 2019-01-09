@@ -57,7 +57,7 @@ Spree.ready(function(){
   var uniqueId = 1;
   $('.spree_add_fields').click(function() {
     var target = $(this).data("target");
-    var new_table_row = $(target + ' tr:visible:last').clone();
+    var new_table_row = $(target + ' tr:last').clone();
     var new_id = new Date().getTime() + (uniqueId++);
     new_table_row.find("input, select").each(function () {
       var el = $(this);
@@ -73,6 +73,7 @@ Spree.ready(function(){
       var el = $(this);
       el.prop('href', '#');
     })
+    new_table_row.removeAttr('style');
     $(target).prepend(new_table_row);
   })
 
